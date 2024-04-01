@@ -29,7 +29,7 @@ variable "gcp_pg_tier" {
 
 
 variable "backup_configuration" {
-  description = "(Optional) List of backup configurations."
+  description = "List of backup configurations."
   type        = any
   default = {
     enabled                        = true
@@ -37,7 +37,7 @@ variable "backup_configuration" {
     binary_log_enabled             = false
     point_in_time_recovery_enabled = true
     transaction_log_retention_days = 2
-    retained_backups               = 3
+    retained_backups               = 7
     retention_unit                 = "COUNT"
   }
 }
