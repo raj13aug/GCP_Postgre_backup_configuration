@@ -54,10 +54,10 @@ variable "backup_instance" {
 variable "backup_configuration" {
   description = "The backup_configuration settings subblock for the database setings"
   type = object({
-    enabled                        = optional(bool, false)
+    enabled                        = optional(bool)
     start_time                     = optional(string)
     location                       = optional(string)
-    point_in_time_recovery_enabled = optional(bool, false)
+    point_in_time_recovery_enabled = optional(bool)
     transaction_log_retention_days = optional(string)
     retained_backups               = optional(number)
     retention_unit                 = optional(string)
