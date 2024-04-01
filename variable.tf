@@ -45,3 +45,28 @@ variable "gcp_pg_db_flag_value" {
   type    = string
   default = "on"
 }
+
+variable "backup_instance" {
+  type    = string
+  default = null
+}
+
+variable "backup_configuration" {
+  description = "The backup_configuration settings subblock for the database setings"
+  type = object({
+    enabled                        = optional(bool, false)
+    start_time                     = optional(string)
+    location                       = optional(string)
+    point_in_time_recovery_enabled = optional(bool, false)
+    transaction_log_retention_days = optional(string)
+    retained_backups               = optional(number)
+    retention_unit                 = optional(string)
+  })
+  default = {}
+}
+
+variable "availability_type" {
+  description = "only used to set up high availability for the PostgreSQL instance. Can be either `ZONAL` or `REGIONAL`."
+  type        = string
+  default     = "ZONAL"
+}
