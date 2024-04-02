@@ -49,8 +49,8 @@ resource "google_sql_database_instance" "primary" {
       for_each = local.backup_configuration
 
       content {
-        binary_log_enabled             = try(backup_configuration.value.binary_log_enabled, null)
         enabled                        = try(backup_configuration.value.enabled, null)
+        binary_log_enabled             = try(backup_configuration.value.binary_log_enabled, null)
         start_time                     = try(backup_configuration.value.start_time, null)
         point_in_time_recovery_enabled = try(backup_configuration.value.point_in_time_recovery_enabled, null)
         location                       = try(backup_configuration.value.location, null)
